@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-notodo
+Exec=harbour-notodo
+Name=NoTodo
+# translation example:
+# your app name in German locale (de)
+#Name[de]=simpletodo
+
