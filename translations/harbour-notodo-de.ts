@@ -1,171 +1,171 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="de">
 <context>
     <name>AboutModel</name>
     <message>
         <source>Project Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Projekt-Homepage</translation>
     </message>
     <message>
         <source>on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>auf GitHub</translation>
     </message>
     <message>
         <source>Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Projekt</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Lizenz</translation>
     </message>
     <message>
         <source>Report a bug or send a feature request</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler melden oder Verbesserungsvorschlag senden</translation>
     </message>
     <message>
         <source>on GitHub Issues</source>
-        <translation type="unfinished"></translation>
+        <translation>auf GitHub Issues</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Twitter</source>
-        <translation type="unfinished"></translation>
+        <translation>Twitter</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Spenden</translation>
     </message>
     <message>
         <source>via PayPal</source>
-        <translation type="unfinished"></translation>
+        <translation>über PayPal</translation>
     </message>
     <message>
         <source>via Flattr</source>
-        <translation type="unfinished"></translation>
+        <translation>über Flattr</translation>
     </message>
     <message>
         <source>Translate this app</source>
-        <translation type="unfinished"></translation>
+        <translation>Hilf mit, diese App zu übersetzen</translation>
     </message>
     <message>
         <source>on translate.neufing.org</source>
-        <translation type="unfinished"></translation>
+        <translation>auf translate.neufing.org</translation>
     </message>
     <message>
         <source>Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzung</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>About NoTodo</source>
-        <translation type="unfinished"></translation>
+        <translation>Über NoTodo</translation>
     </message>
     <message>
         <source>Link will open</source>
-        <translation type="unfinished"></translation>
+        <translation>Link wird geöffnet</translation>
     </message>
     <message>
         <source>Mail app will open</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail-App wird geöffnet</translation>
     </message>
 </context>
 <context>
     <name>LicensePage</name>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Lizenz</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>New note</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>New to-do list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No notes or to-dos available yet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a new note or to-do</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotePage</name>
     <message>
         <source>Write a new</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>note</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>to-do list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
     <message>
         <source>To-Do</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>%n words</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform/>
         </translation>
     </message>
     <message>
         <source>%1 of %2 (%3%) done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TodoPage</name>
     <message>
         <source>New entry</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
