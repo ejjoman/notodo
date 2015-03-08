@@ -138,22 +138,22 @@
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
-    <message numerus="yes">
-        <source>%n words</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>%1 of %2 (%3%) done</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Change to &lt;b&gt;task list&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change to &lt;b&gt;note&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 done (%3%)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

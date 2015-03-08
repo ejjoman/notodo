@@ -180,14 +180,14 @@
     </message>
     <message numerus="yes">
         <source>%n words</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>%n Wort</numerusform>
             <numerusform>%n Wörter</numerusform>
         </translation>
     </message>
     <message>
         <source>%1 of %2 (%3%) done</source>
-        <translation>%1 von %2 (%3%) erledigt</translation>
+        <translation type="vanished">%1 von %2 (%3%) erledigt</translation>
     </message>
     <message>
         <source>Change to</source>
@@ -199,6 +199,17 @@
     </message>
     <message>
         <source>Change to &lt;b&gt;note&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 of %2 done (%3%)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

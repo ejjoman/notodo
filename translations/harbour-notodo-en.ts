@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en" sourcelanguage="en">
+<TS version="2.1" language="en" sourcelanguage="en">
 <context>
     <name>AboutModel</name>
     <message>
@@ -187,15 +187,16 @@
     </message>
     <message numerus="yes">
         <location filename="../qml/common/NotePagePullDownMenu.qml" line="64"/>
-        <source>%n words</source>
-        <translation>
+        <source>%n word(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <location filename="../qml/common/NotePagePullDownMenu.qml" line="74"/>
-        <source>%1 of %2 (%3%) done</source>
-        <translation></translation>
+        <source>%1 of %2 done (%3%)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
