@@ -62,7 +62,7 @@ Page {
             }
 
             MenuItem {
-                text: qsTr("New to-do list")
+                text: qsTr("New task list")
                 onClicked: pageStack.push(todoPage, {noteIndex: -1})
             }
         }
@@ -146,7 +146,7 @@ Page {
                             if (todoModel.count === todoModel.checked)
                                 return qsTr("All done")
 
-                            return todoModel.checked + " of " + todoModel.count + " done";
+                            return qsTr("%1 of %2 done").arg(todoModel.checked).arg(todoModel.count)
                         }
 
                         truncationMode: TruncationMode.Fade
@@ -159,7 +159,7 @@ Page {
             }
 
             function remove() {
-                remorseAction(qsTr("Removing"), function() {
+                remorseAction(qsTr("Deleting"), function() {
                     notesModel.deleteNote(model.index)
                 })
             }
@@ -169,7 +169,7 @@ Page {
 
                 ContextMenu {
                     MenuItem {
-                        text: qsTr("Remove")
+                        text: qsTr("Delete")
                         onClicked: listItem.remove()
                     }
                 }
@@ -185,8 +185,8 @@ Page {
 
         ViewPlaceholder {
             enabled: list.count == 0
-            text: qsTr("No notes or to-dos available yet")
-            hintText: qsTr("Add a new note or to-do")
+            text: qsTr("No notes or task lists available yet")
+            hintText: qsTr("Add a new note or task list")
         }
     }
 

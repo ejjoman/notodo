@@ -39,7 +39,7 @@ NoteBasePage {
     objectName: "NotePage"
 
     type: "note"
-    newTitle: "New note"
+    newTitle: qsTr("New note")
 
     SilicaFlickable {
         id: flickable
@@ -101,7 +101,7 @@ NoteBasePage {
 
                 width: parent.width
                 height: Math.max(flickable.height-header.height, implicitHeight)
-                placeholderText: qsTr("Write a new") + " " + (type == "note" ? qsTr("note") : qsTr("to-do list")) + "..."
+                placeholderText: qsTr("Write a new note")
                 background: null // full-screen text fields don't need bottom border background
 
 

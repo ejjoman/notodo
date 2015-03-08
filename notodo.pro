@@ -52,7 +52,8 @@ OTHER_FILES += \
 # to disable building translations every time, comment out the
 # following CONFIG line
 CONFIG += sailfishapp_i18n
-TRANSLATIONS += translations/harbour-notodo-de.ts
+TRANSLATIONS += translations/harbour-notodo-en.ts \
+                translations/harbour-notodo-de.ts
 
 HEADERS += \
     src/iconprovider.h \

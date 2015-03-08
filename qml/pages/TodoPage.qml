@@ -39,7 +39,7 @@ NoteBasePage {
     objectName: "TodoPage"
 
     type: "todo"
-    newTitle: "New Todo"
+    newTitle: qsTr("New task list")
 
     property bool _modelUpdating: false;
 

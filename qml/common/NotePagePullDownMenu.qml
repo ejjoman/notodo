@@ -29,7 +29,7 @@ PullDownMenu {
 //    }
 
     MenuItem {
-        text: qsTr("Change to") + " " + (basePage.type == "note" ? qsTr("To-Do") : qsTr("Note"))
+        text: basePage.type == "note" ? qsTr("Change to <b>task list</b>") : qsTr("Change to <b>note</b>")
 
         onClicked: {
             root.basePage.isChangingType = true
@@ -71,7 +71,7 @@ PullDownMenu {
 
                 var percentage = checkedCount / itemCount
 
-                return qsTr("%1 of %2 (%3\%) done").arg(checkedCount).arg(itemCount).arg(Math.floor(percentage * 100))
+                return qsTr("%1 of %2 done (%3\%)").arg(checkedCount).arg(itemCount).arg(Math.floor(percentage * 100))
             }
         }
     }

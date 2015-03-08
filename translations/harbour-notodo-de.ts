@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
@@ -94,11 +94,11 @@
     </message>
     <message>
         <source>Removing</source>
-        <translation>Entferne</translation>
+        <translation type="vanished">Entferne</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Löschen</translation>
+        <translation type="vanished">Löschen</translation>
     </message>
     <message>
         <source>New note</source>
@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>New to-do list</source>
-        <translation>Neue To-Do-Liste</translation>
+        <translation type="vanished">Neue To-Do-Liste</translation>
     </message>
     <message>
         <source>All done</source>
@@ -114,50 +114,92 @@
     </message>
     <message>
         <source>No notes or to-dos available yet</source>
-        <translation>Noch keine Notizen oder To-Do-Listen vorhanden</translation>
+        <translation type="vanished">Noch keine Notizen oder To-Do-Listen vorhanden</translation>
     </message>
     <message>
         <source>Add a new note or to-do</source>
-        <translation>Füge eine neue Notiz oder To-Do-Liste hinzu</translation>
+        <translation type="vanished">Füge eine neue Notiz oder To-Do-Liste hinzu</translation>
+    </message>
+    <message>
+        <source>New task list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 of %2 done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No notes or task lists available yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a new note or task list</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NotePage</name>
     <message>
         <source>Write a new</source>
-        <translation>Schreibe eine neue</translation>
+        <translation type="vanished">Schreibe eine neue</translation>
     </message>
     <message>
         <source>note</source>
-        <translation>Notiz</translation>
+        <translation type="vanished">Notiz</translation>
     </message>
     <message>
         <source>to-do list</source>
-        <translation>To-Do-Liste</translation>
+        <translation type="vanished">To-Do-Liste</translation>
+    </message>
+    <message>
+        <source>New note</source>
+        <translation type="unfinished">Neue Notiz</translation>
+    </message>
+    <message>
+        <source>Write a new note</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
     <message>
         <source>To-Do</source>
-        <translation>To-Do</translation>
+        <translation type="vanished">To-Do</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation>Notiz</translation>
+        <translation type="vanished">Notiz</translation>
     </message>
     <message numerus="yes">
         <source>%n words</source>
-        <translation><numerusform>%n Wort</numerusform>
-        <numerusform>%n Wörter</numerusform>
-        </translation></message>
+        <translation>
+            <numerusform>%n Wort</numerusform>
+            <numerusform>%n Wörter</numerusform>
+        </translation>
+    </message>
     <message>
         <source>%1 of %2 (%3%) done</source>
         <translation>%1 von %2 (%3%) erledigt</translation>
     </message>
     <message>
         <source>Change to</source>
-        <translation>Ändern zu</translation>
+        <translation type="vanished">Ändern zu</translation>
+    </message>
+    <message>
+        <source>Change to &lt;b&gt;task list&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change to &lt;b&gt;note&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -165,6 +207,10 @@
     <message>
         <source>New entry</source>
         <translation>Neuer Eintrag</translation>
+    </message>
+    <message>
+        <source>New task list</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
