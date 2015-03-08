@@ -9,7 +9,7 @@ ListModel {
                         title: qsTr("Project Home"),
                         subTitle: qsTr("on GitHub"),
                         group: qsTr("Project"),
-                        url: "https://github.com/ejjoman/harbour-notodo"
+                        url: "https://github.com/ejjoman/notodo"
                     },
                     {
                         title: qsTr("License"),
@@ -21,7 +21,7 @@ ListModel {
                         title: qsTr("Report a bug or send a feature request"),
                         subTitle: qsTr("on GitHub Issues"),
                         group: qsTr("Project"),
-                        url: "https://github.com/ejjoman/harbour-notodo/issues"
+                        url: "https://github.com/ejjoman/notodo/issues"
                     },
                     {
                         title: qsTr("Author"),
@@ -29,7 +29,7 @@ ListModel {
                         group: qsTr("Author"),
                         mail: {
                             address: "michael@neufing.org",
-                            subject: "NoTodo"
+                            subject: "[NoTodo] - "
                         }
                     },
                     {
@@ -48,7 +48,7 @@ ListModel {
                         title: qsTr("Donate"),
                         subTitle: qsTr("via Flattr"),
                         group: qsTr("Author"),
-                        url: "https://flattr.com/submit/auto?user_id=ejjoman&url=https%3A%2F%2Fgithub.com%2Fejjoman%2Fharbour-notodo"
+                        url: "https://flattr.com/submit/auto?user_id=ejjoman&url=https%3A%2F%2Fgithub.com%2Fejjoman%2Fnotodo"
                     },
                     {
                         title: qsTr("Translate this app"),
