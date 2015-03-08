@@ -61,7 +61,7 @@ PullDownMenu {
 
         text: {
             if (isNote) {
-                return qsTr("%n words", "", basePage.note.countWords())
+                return qsTr("%n word(s)", "", basePage.note.countWords())
             } else {
                 var checkedCount = todoModel.checkedCount;
                 var itemCount = todoModel.count;
