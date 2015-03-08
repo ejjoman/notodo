@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
@@ -203,9 +203,11 @@
     </message>
     <message numerus="yes">
         <source>%n word(s)</source>
-        <translation><numerusform>%n Wort</numerusform>
-        <numerusform>%n Wörtern</numerusform>
-        </translation></message>
+        <translation>
+            <numerusform>%n Wort</numerusform>
+            <numerusform>%n Wörtern</numerusform>
+        </translation>
+    </message>
     <message>
         <source>%1 of %2 done (%3%)</source>
         <translation>%1 von %2 erledigt (%3%)</translation>
