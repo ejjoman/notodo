@@ -33,115 +33,120 @@ import Sailfish.Silica 1.0
 import "../pages"
 
 CoverBackground {
-    Connections {
-        target: pageStack
-
-        onCurrentPageChanged: {
-            console.log("currentPage:", pageStack.currentPage)
-            console.log("type:", pageStack.currentPage.objectName)
-            console.log("isMainPage:", typeof(pageStack.currentPage) == "MainPage")
-
-
-            switch (pageStack.currentPage.objectName) {
-            case "MainPage":
-                noteTitle.text = ""
-
-                list.model = notesModel
-                list.textProperty = "title"
-
-                listConnections.target = pageStack.currentPage.listView;
-
-
-
-                break;
-
-            case "NotePage":
-                noteTitle.text = pageStack.currentPage.title;
-                break;
-
-            case "TodoPage":
-                noteTitle.text = pageStack.currentPage.title;
-                break;
-
-            default:
-                break;
-            }
-        }
+    CoverPlaceholder {
+        text: "NoTodo"
+        icon.source: "image://theme/harbour-notodo"
     }
 
-    Connections {
-        id: listConnections
+//    Connections {
+//        target: pageStack
 
-        onContentHeightChanged: {
-            console.log("contentHeight", target.contentHeight)
-        }
+//        onCurrentPageChanged: {
+//            console.log("currentPage:", pageStack.currentPage)
+//            console.log("type:", pageStack.currentPage.objectName)
+//            console.log("isMainPage:", typeof(pageStack.currentPage) == "MainPage")
 
-        onContentYChanged: {
-            console.log("visibleArea.yPosition", target.visibleArea.yPosition)
-            console.log("visibleArea.heightRatio", target.visibleArea.heightRatio)
-            console.log("multi", (target.visibleArea.yPosition * target.contentHeight) / (target.visibleArea.heightRatio * target.contentHeight))
-        }
-    }
 
-    Label {
-        id: noteTitle
-        visible: text !== ""
+//            switch (pageStack.currentPage.objectName) {
+//            case "MainPage":
+//                noteTitle.text = ""
 
-        anchors {
-            top: parent.top
-            topMargin: Theme.paddingMedium
+//                list.model = notesModel
+//                list.textProperty = "title"
 
-            right: parent.right
-            rightMargin: Theme.paddingMedium
-        }
+//                listConnections.target = pageStack.currentPage.listView;
 
-        color: Theme.highlightColor
 
-        width: Math.min(parent.width - 2*Theme.paddingMedium, implicitWidth)
-        truncationMode: TruncationMode.Fade
-    }
 
-    ListView {
-        id: list
+//                break;
 
-        property string textProperty;
+//            case "NotePage":
+//                noteTitle.text = pageStack.currentPage.title;
+//                break;
 
-        anchors {
-            top: noteTitle.visible ? noteTitle.bottom : parent.top
-            //topMargin: Theme.paddingSmall
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+//            case "TodoPage":
+//                noteTitle.text = pageStack.currentPage.title;
+//                break;
 
-            margins: Theme.paddingLarge
-        }
+//            default:
+//                break;
+//            }
+//        }
+//    }
 
-        delegate: Label {
-            text: list.textProperty ? model[list.textProperty] : "";
-        }
-    }
+//    Connections {
+//        id: listConnections
+
+//        onContentHeightChanged: {
+//            console.log("contentHeight", target.contentHeight)
+//        }
+
+//        onContentYChanged: {
+//            console.log("visibleArea.yPosition", target.visibleArea.yPosition)
+//            console.log("visibleArea.heightRatio", target.visibleArea.heightRatio)
+//            console.log("multi", (target.visibleArea.yPosition * target.contentHeight) / (target.visibleArea.heightRatio * target.contentHeight))
+//        }
+//    }
+
+//    Label {
+//        id: noteTitle
+//        visible: text !== ""
+
+//        anchors {
+//            top: parent.top
+//            topMargin: Theme.paddingMedium
+
+//            right: parent.right
+//            rightMargin: Theme.paddingMedium
+//        }
+
+//        color: Theme.highlightColor
+
+//        width: Math.min(parent.width - 2*Theme.paddingMedium, implicitWidth)
+//        truncationMode: TruncationMode.Fade
+//    }
+
+//    ListView {
+//        id: list
+
+//        property string textProperty;
+
+//        anchors {
+//            top: noteTitle.visible ? noteTitle.bottom : parent.top
+//            //topMargin: Theme.paddingSmall
+//            left: parent.left
+//            right: parent.right
+//            bottom: parent.bottom
+
+//            margins: Theme.paddingLarge
+//        }
+
+//        delegate: Label {
+//            text: list.textProperty ? model[list.textProperty] : "";
+//        }
+//    }
+
+////    OpacityRampEffect {
+////        direction: OpacityRamp.BottomToTop
+////        sourceItem: list
+////    }
 
 //    OpacityRampEffect {
-//        direction: OpacityRamp.BottomToTop
+//        direction: OpacityRamp.TopToBottom
 //        sourceItem: list
 //    }
 
-    OpacityRampEffect {
-        direction: OpacityRamp.TopToBottom
-        sourceItem: list
-    }
+//    CoverActionList {
+//        id: coverAction
 
-    CoverActionList {
-        id: coverAction
+//        CoverAction {
+//            iconSource: "image://theme/icon-cover-next"
+//        }
 
-        CoverAction {
-            iconSource: "image://theme/icon-cover-next"
-        }
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
-        }
-    }
+//        CoverAction {
+//            iconSource: "image://theme/icon-cover-pause"
+//        }
+//    }
 }
 
 

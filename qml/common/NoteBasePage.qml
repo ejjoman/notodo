@@ -36,24 +36,24 @@ import "../js/utils.js" as Utils
 Page {
     id: root
 
+    /* Note properties */
     property int noteIndex
-    //onNoteIndexChanged: _init()
-
     property string type
+    property string note
+    property string title: newTitle
+    property color color: "#FF0000"
+    /* Note properties */
 
     readonly property bool isTodo: type === "todo"
     readonly property bool isNote: type === "note"
 
-    property string note
-    onNoteChanged: _updateTitle()
-
-    property string title
-    property color color: "#FF0000"
-
     property bool loaded: false
     property bool isChangingType: false
-
+    property string newTitle
     property QtObject originalNote
+
+    property bool _titleChangedManually: false
+    property bool _updatingTitle: true
 
     readonly property bool dataChanged: {
         if (!originalNote)
@@ -64,13 +64,14 @@ Page {
 
     property alias colorPicker: colorPicker
 
+    onNoteChanged: _updateTitle()
+
     onStatusChanged: {
-        if (status == PageStatus.Deactivating) {
-            if (noteIndex >= 0 && root.note.trim() == '') {
-                notesModel.deleteNote(noteIndex)
-                noteIndex = -1
+        if (status === PageStatus.Deactivating) {
+            if (root.noteIndex >= 0 && root.note.trim() == '') {
+                notesModel.deleteNote(root.noteIndex)
             } else if(root.note.trim() != '') {
-                saveNote()
+                root.saveNote()
             }
         }
     }
@@ -84,42 +85,43 @@ Page {
         }
 
         if (!dataChanged) {
-            console.log("Nothing changed...")
+            console.log("Nothing changed, ignore call.")
             return;
         }
 
-        console.log("Save changed note...")
+        // Make sure, we have a title
+        _updateTitle()
+
+        var note = {
+            "type": root.type,
+            "title": root.title,
+            "note": root.note,
+            "color": root.color + ""
+        }
 
         if (noteIndex >= 0) {
-            notesModel.updateNote(noteIndex, {
-                                      "type": root.type,
-                                      "title": root.title,
-                                      "note": root.note,
-                                      "color": root.color + "",
-                                      "changedDate": new Date()
-                                  })
+            console.log("Update note...")
+            root.noteIndex = notesModel.updateNote(noteIndex, note)
         } else {
-            notesModel.addNote({
-                                   "type": root.type,
-                                   "title": root.title,
-                                   "note": root.note,
-                                   "color": root.color + "",
-                                   "createdDate": new Date(),
-                                   "changedDate": new Date()
-                               })
+            console.log("Save new note...")
+            notesModel.addNote(note, function(newIndex) {
+                root.noteIndex = newIndex
+            })
         }
     }
 
     function _init() {
         console.log("_init")
 
+        if (loaded)
+            return;
+
+        root.loaded = true
+
         if (isChangingType) {
             isChangingType = false;
             return;
-        }
-
-        if (loaded)
-            return;
+        }           
 
         if (noteIndex < 0 || noteIndex > notesModel.count)
             return;
@@ -129,20 +131,29 @@ Page {
         root.note = item.note
         root.color = item.color
 
+        _titleChangedManually = true;
+
         if (!root.type)
             root.type = item.type
 
         originalNote = item
-
-        root.loaded = true
     }
 
     function _updateTitle() {
-        if (root.noteIndex >= 0)
+        if (_titleChangedManually && title.trim() !== '')
             return;
 
-        var firstLine = note.getFirstLineWithText();
-        root.title = firstLine;
+        _titleChangedManually = false;
+        var firstLine = note.getFirstLineWithText()
+
+        _updatingTitle = true;
+
+        if (firstLine !== '')
+            title = firstLine
+        else
+            title = newTitle
+
+        _updatingTitle = false;
     }
 
     Component {
@@ -158,6 +169,12 @@ Page {
                     root.color = color
             }
         }
+    }
+
+    // Save note on exit / minimizing
+    Connections {
+        target: Qt.application
+        onActiveChanged: if (!Qt.application.active) root.saveNote()
     }
 
     Component.onCompleted: _init()

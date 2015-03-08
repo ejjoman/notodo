@@ -33,14 +33,15 @@ import Sailfish.Silica 1.0
 import "pages"
 import "models"
 import "cover"
+import "common"
 
 ApplicationWindow
 {
     initialPage: Component { MainPage { } }
-    //cover: CoverPage {}
-    cover: CoverPlaceholder {
-        text: "NoTodo"
-        icon: "image://theme/harbour-notodo"
+    cover: CoverPage {}
+
+    Settings {
+        id: settings
     }
 
     NotesModel {

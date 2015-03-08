@@ -16,7 +16,8 @@ CONFIG += sailfishapp
 
 SOURCES += \
     src/iconprovider.cpp \
-    src/notodo.cpp
+    src/notodo.cpp \
+    src/qmlsettings.cpp
 
 OTHER_FILES += \
     qml/cover/CoverPage.qml \
@@ -38,13 +39,22 @@ OTHER_FILES += \
     qml/common/CheckMarker.qml \
     qml/common/MoveTransition.qml \
     qml/notodo.qml \
-    harbour-notodo.desktop
+    harbour-notodo.desktop \
+    qml/pages/AboutPage.qml \
+    qml/models/AboutModel.qml \
+    qml/common/AboutItem.qml \
+    qml/pages/LicensePage.qml \
+    qml/images/GPLv3.png \
+    qml/common/Settings.qml \
+    qml/common/NotePageHeader.qml \
+    qml/common/TodoListDelegate.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-#CONFIG += sailfishapp_i18n
+CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-notodo-de.ts
 
 HEADERS += \
-    src/iconprovider.h
+    src/iconprovider.h \
+    src/qmlsettings.h
 

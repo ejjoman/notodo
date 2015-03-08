@@ -39,6 +39,7 @@ NoteBasePage {
     objectName: "NotePage"
 
     type: "note"
+    newTitle: "New note"
 
     SilicaFlickable {
         id: flickable
@@ -55,21 +56,36 @@ NoteBasePage {
 
             width: parent.width
 
-            PageHeader {
+            NotePageHeader {
                 id: header
+                page: root
 
-                title: {
-                    if (root.noteIndex >= 0)
-                        return root.title;
+                title: root.title
 
-                    if (root.title.trim() != "")
-                        return root.title.trim();
+                onTextChanged: {
+                    if (root._updatingTitle)
+                        return;
 
-                    if (root.type == "note")
-                        return qsTr("New note")
+                    _updatingTitle = true;
+                    root.title = text
+                    _updatingTitle = false;
 
-                    return qsTr("New to-do")
+                    root._titleChangedManually = true
                 }
+
+                onActiveFocusChanged: {
+                    if (activeFocus) {
+                        if (root._titleChangedManually) {
+                            textItem.cursorPosition = title.length
+                        } else {
+                            textItem.selectAll();
+                        }
+                    } else {
+                        root._updateTitle()
+                    }
+                }
+
+                Component.onCompleted: root._updatingTitle = false
             }
 
             TextArea {
@@ -94,6 +110,11 @@ NoteBasePage {
         }
 
         VerticalScrollDecorator {}
+    }
+
+    Component.onCompleted: {
+        if (root.noteIndex < 0)
+            textArea.forceActiveFocus()
     }
 }
 

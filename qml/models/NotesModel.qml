@@ -4,39 +4,54 @@ import QtQuick.LocalStorage 2.0
 ListModel {
     id: root
 
-    function __db() {
-        try {
-            var db = LocalStorage.openDatabaseSync("notodo", "", "notodo database", 1000000);
+    function __rawOpenDb() {
+        return LocalStorage.openDatabaseSync('notodo', '', 'notodo database', 10000);
+    }
 
-            if (db.version === "") {
-                db.changeVersion("", "1", function(tx) {
-                    var createTable =
-                            'CREATE TABLE "notes" ( \
-                                "id" INTEGER PRIMARY KEY, \
-                                "type" TEXT NOT NULL, \
-                                "title" TEXT NOT NULL, \
-                                "note" TEXT NOT NULL, \
-                                "color" TEXT NOT NULL, \
-                                "created" TEXT NOT NULL, \
-                                "changed" TEXT NOT NULL
-                            );';
+    function __upgradeSchema(db) {
+        if (db.version === '') {
+            db.changeVersion('', '1', function(tx) {
+                var createTable =
+                        'CREATE TABLE "notes" ( \
+                            "id" INTEGER PRIMARY KEY, \
+                            "type" TEXT NOT NULL, \
+                            "title" TEXT NOT NULL, \
+                            "note" TEXT NOT NULL, \
+                            "color" TEXT NOT NULL, \
+                            "created" TEXT NOT NULL, \
+                            "changed" TEXT NOT NULL
+                        )';
 
-                    tx.executeSql(createTable);
-                })
-            }
+                tx.executeSql(createTable);
+            })
 
-            return db;
-        } catch(e) {
-            console.log("Could not open DB: " + e);
+            db = __rawOpenDb()
         }
 
-        return null;
+//        if (db.version === '1') {
+//            db.changeVersion('1', '2', function(tx) {
+//                tx.executeSql('ALTER TABLE "notes" ADD COLUMN revision INTEGER');
+//                tx.executeSql('ALTER TABLE "notes" ADD COLUMN revisionInfo TEXT');
+//                //tx.executeSql('UPDATE "notes" SET revision=0');
+//            })
+
+//            db = __rawOpenDb()
+//        }
+    }
+
+    function openDb() {
+        var db = __rawOpenDb()
+
+        if (db.version !== '1')
+            __upgradeSchema(db);
+
+        return db;
     }
 
     function load() {
         root.clear();
 
-        __db().transaction(function(tx) {
+        openDb().transaction(function(tx) {
             var results = tx.executeSql("SELECT * FROM notes ORDER BY changed DESC")
 
             for (var i=0; i<results.rows.length; i++) {
@@ -70,41 +85,44 @@ ListModel {
         return i + 1;
     }
 
-    property color test: "#000"
-
-    function addNote(note) {
-        __db().transaction(function(tx) {
-            var insert = "INSERT INTO notes (id, type, title, note, color, created, changed) VALUES (null, ?, ?, ?, ?, ?, ?)";
-
-            tx.executeSql(insert, [
-                              note.type,
-                              note.title,
-                              note.note,
-                              note.color,
-                              note.createdDate.toISOString(),
-                              note.changedDate.toISOString()
-                          ]);
-        })
-
-        var newIndex = root._getNewIndex(note);
-        root.insert(newIndex, note);
-
-        return newIndex;
-    }
-
     function getIdFromIndex(index) {
         var note = root.get(index);
 
         return note ? note.id : -1;
     }
 
+    function addNote(note, callback) {
+        openDb().transaction(function(tx) {
+            var insert = "INSERT INTO notes (id, type, title, note, color, created, changed) VALUES (null, ?, ?, ?, ?, ?, ?)";
+
+            var result = tx.executeSql(insert, [
+                                           note.type,
+                                           note.title,
+                                           note.note,
+                                           note.color,
+                                           new Date().toISOString(),
+                                           new Date().toISOString()
+                                       ]);
+
+            console.log("ID of new note is", result.insertId);
+
+            note["id"] = parseInt(result.insertId)
+
+            var newIndex = root._getNewIndex(note);
+            root.insert(newIndex, note);
+
+            callback(newIndex);
+        })
+    }
+
     function updateNote(index, note) {
         var noteId = root.getIdFromIndex(index);
+        console.log("Updating note with id:", noteId)
 
         if (noteId < 0)
             return;
 
-        __db().transaction(function(tx) {
+        openDb().transaction(function(tx) {
             var update = "UPDATE notes SET type=?, title=?, note=?, color=?, changed=? WHERE id=?";
 
             tx.executeSql(update, [
@@ -112,7 +130,7 @@ ListModel {
                               note.title,
                               note.note,
                               note.color,
-                              note.changedDate.toISOString(),
+                              new Date().toISOString(),
                               noteId
                           ]);
         });
@@ -131,7 +149,7 @@ ListModel {
         if (noteId < 0)
             return;
 
-        __db().transaction(function(tx) {
+        openDb().transaction(function(tx) {
             tx.executeSql("DELETE FROM notes WHERE id=?", [noteId]);
         });
 

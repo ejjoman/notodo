@@ -33,8 +33,10 @@
 #endif
 
 #include <sailfishapp.h>
+#include <QGuiApplication>
+#include <QQuickView>
 #include "iconprovider.h"
-
+#include "qmlsettings.h"
 
 int main(int argc, char *argv[])
 {
@@ -48,6 +50,8 @@ int main(int argc, char *argv[])
     // To display the view, call "show()" (will show fullscreen on device).
 
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+
+    qmlRegisterSingletonType<QmlSettings>("harbour.notodo.Settings", 1, 0, "QmlSettings", QmlSettings::singletonProvider);
 
     //QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();

@@ -48,9 +48,11 @@ Page {
         PullDownMenu {
             MenuItem {
                 text: qsTr("About")
+                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
 
             MenuItem {
+                visible: false
                 text: qsTr("Settings")
             }
 
@@ -184,7 +186,7 @@ Page {
         ViewPlaceholder {
             enabled: list.count == 0
             text: qsTr("No notes or to-dos available yet")
-            hintText: qsTr("Add new list")
+            hintText: qsTr("Add a new note or to-do")
         }
     }
 

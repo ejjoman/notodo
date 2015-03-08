@@ -38,35 +38,63 @@ NoteBasePage {
     id: root
     objectName: "TodoPage"
 
-    property alias model: todoModel
-
     type: "todo"
+    newTitle: "New Todo"
+
+    property bool _modelUpdating: false;
 
     SilicaListView {
         id: todoList
         clip: true
+
+        function getItemByIndex(index) {
+            for (var i=0; i<todoList.contentItem.children.length; i++) {
+                var item = todoList.contentItem.children[i];
+
+                if (item.index === index) {
+                    return item;
+                }
+            }
+
+            return null;
+        }
 
         NotePagePullDownMenu {
             basePage: root
             todoModel: todoModel
         }
 
-        header: PageHeader {
-            title: {
-                if (root.noteIndex >= 0)
-                    return root.title;
+        header: NotePageHeader {
+            id: header
+            page: root
 
-                if (root.title.trim() != "")
-                    return root.title.trim();
+            title: root.title
 
-                if (root.type == "note")
-                    return qsTr("New note")
+            onTextChanged: {
+                if (root._updatingTitle)
+                    return;
 
-                return qsTr("New to-do")
+                _updatingTitle = true;
+                root.title = text
+                _updatingTitle = false;
+
+                root._titleChangedManually = true
             }
-        }
 
-        //add:
+            onActiveFocusChanged: {
+                if (activeFocus) {
+                    if (root._titleChangedManually) {
+                        textItem.cursorPosition = title.length
+                    } else {
+                        textItem.selectAll();
+                    }
+                } else {
+                    root._updateTitle()
+                }
+            }
+
+            Component.onCompleted: root._updatingTitle = false
+        }
 
         move: MoveTransition {}
         displaced: MoveTransition {}
@@ -77,110 +105,8 @@ NoteBasePage {
             fill: parent
             bottomMargin: panel.height
         }
-        visible: root.isTodo
 
-        delegate: Item {
-            id: listItem
-
-            property alias backgroundRectAnimation: backgroundRectAnimation
-            readonly property int index: model.index
-
-            height: Theme.itemSizeSmall
-            width: parent.width
-
-            Rectangle {
-                id: backgroundRect
-                color: Theme.highlightColor
-
-                z: -1
-                anchors.fill: parent
-
-                opacity: 0
-
-                PropertyAnimation {
-                    id: backgroundRectAnimation
-
-                    target: backgroundRect
-                    property: "opacity"
-                    from: .7
-                    to: 0
-                    duration: 300
-                }
-            }
-
-            MouseArea {
-                id: checkMarkerMouseArea
-
-                readonly property bool down: pressed && containsMouse
-
-                width: checkMarker.width + 2 * Theme.paddingLarge
-                height: parent.height
-
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    right: parent.right
-                }
-
-                onClicked: todoModel.updateCheckedStatus(model.index, !checkMarker.checked)
-
-                Rectangle {
-                    width: 1
-                    color: Theme.primaryColor
-                    opacity: .3
-
-                    height: parent.height
-                    anchors.left: parent.left
-                }
-
-                CheckMarker {
-                    id: checkMarker
-                    animationDuration: 150
-                    anchors.centerIn: parent
-                    checked: model.checked
-                    checkmarkColor: checkMarkerMouseArea.down ? Theme.highlightColor : Theme.primaryColor
-                }
-            }
-
-            TextField {
-                id: textField
-
-                property bool _initialized: false
-
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    left: parent.left
-                    right: checkMarkerMouseArea.left
-                }
-
-                font.strikeout: checkMarker.checked
-
-                labelVisible: false
-                background: null
-                color: checkMarkerMouseArea.down ? Theme.highlightColor : Theme.primaryColor
-                text: model.text
-
-                onTextChanged: {
-                    if (!_initialized)
-                        return;
-
-                    todoModel.updateText(model.index, text);
-                }
-
-                EnterKey.onClicked: {
-                    if (text === '')
-                        todoModel.remove(model.index);
-                    else
-                        todoModel.insert(model.index + 1, {checked: false, text:''})
-                }
-
-                EnterKey.highlighted: true
-                EnterKey.iconSource: "image://theme/icon-m-enter-accept"
-
-                Component.onCompleted: {
-                    _initialized = true;
-                }
-            }
-        }
+        delegate: TodoListDelegate {}
 
         VerticalScrollDecorator {}
     }
@@ -210,28 +136,35 @@ NoteBasePage {
             EnterKey.enabled: text.trim().length > 0
             EnterKey.onClicked: {
                 focus = true
+                addItem()
+            }
 
-                var index = todoModel.addItem(text, true)
+            function addItem() {
+                if (text.trim() === '')
+                    return;
+
+                var index = todoModel.addItem(text.trim(), true)
 
                 // Ugly hack...
-                // Animation does not start, if set with ListItem.onAdd signal and new item is out of bounds (cacheBuffer).
+                // Animation does not work, if it was set with ListItem.onAdd signal and new item is out of bounds (cacheBuffer).
                 // So bring item into view first, search it and start animation after that.
                 todoList.positionViewAtIndex(index, ListView.Center)
 
-                for (var i=0; i<todoList.contentItem.children.length; i++) {
-                    var item = todoList.contentItem.children[i];
+                var item = todoList.getItemByIndex(index);
 
-                    if (item.index === index) {
-                        item.backgroundRectAnimation.start()
-                        break;
-                    }
-                }
+                if (item)
+                    item.backgroundRectAnimation.start()
 
                 text = ''
             }
 
             EnterKey.highlighted: true
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+
+            onActiveFocusChanged: {
+                if (!activeFocus)
+                    addItem()
+            }
         }
 
         PanelBackground {
@@ -240,19 +173,25 @@ NoteBasePage {
         }
     }
 
+    onNoteChanged: {
+        if (_modelUpdating)
+            return;
+
+        todoModel.initModel(root.note)
+    }
+
     TodoModel {
         id: todoModel
-        text: root.note
 
-        property bool _initialized: false;
-        onTextChanged: {
-            if (!_initialized)
-                return;
-
-            console.log("Updating note with todo-text")
+        onModelUpdated: {
+            _modelUpdating = true;
             root.note = text
+            _modelUpdating = false;
         }
+    }
 
-        Component.onCompleted: _initialized = true;
+    Component.onCompleted: {
+        if (root.noteIndex < 0)
+            newEntryField.forceActiveFocus()
     }
 }

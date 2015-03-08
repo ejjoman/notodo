@@ -2,10 +2,84 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>CoverPage</name>
+    <name>AboutModel</name>
     <message>
-        <source>My Cover</source>
-        <translation>Mein Cover</translation>
+        <source>Project Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>on GitHub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Report a bug or send a feature request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>on GitHub Issues</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Twitter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>via PayPal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>via Flattr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translate this app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>on translate.neufing.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutPage</name>
+    <message>
+        <source>About NoTodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link will open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mail app will open</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LicensePage</name>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -19,18 +93,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No lists available yet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add new list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Removing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -38,17 +100,29 @@
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>NotePage</name>
     <message>
         <source>New note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New to-do</source>
+        <source>New to-do list</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>All done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No notes or to-dos available yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a new note or to-do</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotePage</name>
     <message>
         <source>Write a new</source>
         <translation type="unfinished"></translation>
@@ -64,14 +138,6 @@
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
-    <message>
-        <source>Select color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change type to:</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>To-Do</source>
         <translation type="unfinished"></translation>
@@ -90,17 +156,13 @@
         <source>%1 of %2 (%3%) done</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Change to</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TodoPage</name>
-    <message>
-        <source>New note</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New to-do</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>New entry</source>
         <translation type="unfinished"></translation>
