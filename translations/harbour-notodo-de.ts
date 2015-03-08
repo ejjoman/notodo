@@ -94,78 +94,77 @@
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"/>
+        <translation>Entferne</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>New note</source>
-        <translation type="unfinished"/>
+        <translation>Neue Notiz</translation>
     </message>
     <message>
         <source>New to-do list</source>
-        <translation type="unfinished"/>
+        <translation>Neue To-Do-Liste</translation>
     </message>
     <message>
         <source>All done</source>
-        <translation type="unfinished"/>
+        <translation>Alle erledigt</translation>
     </message>
     <message>
         <source>No notes or to-dos available yet</source>
-        <translation type="unfinished"/>
+        <translation>Noch keine Notizen oder To-Do-Listen vorhanden</translation>
     </message>
     <message>
         <source>Add a new note or to-do</source>
-        <translation type="unfinished"/>
+        <translation>Füge eine neue Notiz oder To-Do-Liste hinzu</translation>
     </message>
 </context>
 <context>
     <name>NotePage</name>
     <message>
         <source>Write a new</source>
-        <translation type="unfinished"/>
+        <translation>Schreibe eine neue</translation>
     </message>
     <message>
         <source>note</source>
-        <translation type="unfinished"/>
+        <translation>Notiz</translation>
     </message>
     <message>
         <source>to-do list</source>
-        <translation type="unfinished"/>
+        <translation>To-Do-Liste</translation>
     </message>
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
     <message>
         <source>To-Do</source>
-        <translation type="unfinished"/>
+        <translation>To-Do</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Notiz</translation>
     </message>
     <message numerus="yes">
         <source>%n words</source>
-        <translation type="unfinished">
-            <numerusform/>
-        </translation>
-    </message>
+        <translation><numerusform>%n Wort</numerusform>
+        <numerusform>%n Wörter</numerusform>
+        </translation></message>
     <message>
         <source>%1 of %2 (%3%) done</source>
-        <translation type="unfinished"/>
+        <translation>%1 von %2 (%3%) erledigt</translation>
     </message>
     <message>
         <source>Change to</source>
-        <translation type="unfinished"/>
+        <translation>Ändern zu</translation>
     </message>
 </context>
 <context>
     <name>TodoPage</name>
     <message>
         <source>New entry</source>
-        <translation type="unfinished"/>
+        <translation>Neuer Eintrag</translation>
     </message>
 </context>
 </TS>
