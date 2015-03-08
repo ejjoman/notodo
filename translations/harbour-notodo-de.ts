@@ -93,32 +93,12 @@
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Removing</source>
-        <translation type="vanished">Entferne</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="vanished">Löschen</translation>
-    </message>
-    <message>
         <source>New note</source>
         <translation>Neue Notiz</translation>
     </message>
     <message>
-        <source>New to-do list</source>
-        <translation type="vanished">Neue To-Do-Liste</translation>
-    </message>
-    <message>
         <source>All done</source>
         <translation>Alle erledigt</translation>
-    </message>
-    <message>
-        <source>No notes or to-dos available yet</source>
-        <translation type="vanished">Noch keine Notizen oder To-Do-Listen vorhanden</translation>
-    </message>
-    <message>
-        <source>Add a new note or to-do</source>
-        <translation type="vanished">Füge eine neue Notiz oder To-Do-Liste hinzu</translation>
     </message>
     <message>
         <source>New task list</source>
@@ -148,18 +128,6 @@
 <context>
     <name>NotePage</name>
     <message>
-        <source>Write a new</source>
-        <translation type="vanished">Schreibe eine neue</translation>
-    </message>
-    <message>
-        <source>note</source>
-        <translation type="vanished">Notiz</translation>
-    </message>
-    <message>
-        <source>to-do list</source>
-        <translation type="vanished">To-Do-Liste</translation>
-    </message>
-    <message>
         <source>New note</source>
         <translation>Neue Notiz</translation>
     </message>
@@ -170,29 +138,6 @@
 </context>
 <context>
     <name>NotePagePullDownMenu</name>
-    <message>
-        <source>To-Do</source>
-        <translation type="vanished">To-Do</translation>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation type="vanished">Notiz</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n words</source>
-        <translation type="vanished">
-            <numerusform>%n Wort</numerusform>
-            <numerusform>%n Wörter</numerusform>
-        </translation>
-    </message>
-    <message>
-        <source>%1 of %2 (%3%) done</source>
-        <translation type="vanished">%1 von %2 (%3%) erledigt</translation>
-    </message>
-    <message>
-        <source>Change to</source>
-        <translation type="vanished">Ändern zu</translation>
-    </message>
     <message>
         <source>Change to &lt;b&gt;task list&lt;/b&gt;</source>
         <translation>Zu &lt;b&gt;Aufgabenliste&lt;/b&gt; ändern</translation>
