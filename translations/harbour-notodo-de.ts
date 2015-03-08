@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
@@ -122,27 +122,27 @@
     </message>
     <message>
         <source>New task list</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Aufgabenliste</translation>
     </message>
     <message>
         <source>%1 of %2 done</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 von %2 erledigt</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösche</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>No notes or task lists available yet</source>
-        <translation type="unfinished"></translation>
+        <translation>Noch keine Notizen oder Aufgabenlisten vorhanden</translation>
     </message>
     <message>
         <source>Add a new note or task list</source>
-        <translation type="unfinished"></translation>
+        <translation>Füge eine neue Notiz oder Aufgabenliste hinzu</translation>
     </message>
 </context>
 <context>
@@ -161,11 +161,11 @@
     </message>
     <message>
         <source>New note</source>
-        <translation type="unfinished">Neue Notiz</translation>
+        <translation>Neue Notiz</translation>
     </message>
     <message>
         <source>Write a new note</source>
-        <translation type="unfinished"></translation>
+        <translation>Schreibe eine neue Notiz</translation>
     </message>
 </context>
 <context>
@@ -195,22 +195,20 @@
     </message>
     <message>
         <source>Change to &lt;b&gt;task list&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu &lt;b&gt;Aufgabenliste&lt;/b&gt; ändern</translation>
     </message>
     <message>
         <source>Change to &lt;b&gt;note&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu &lt;b&gt;Notiz&lt;/b&gt; ändern</translation>
     </message>
     <message numerus="yes">
         <source>%n word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
+        <translation><numerusform>%n Wort</numerusform>
+        <numerusform>%n Wörtern</numerusform>
+        </translation></message>
     <message>
         <source>%1 of %2 done (%3%)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 von %2 erledigt (%3%)</translation>
     </message>
 </context>
 <context>
@@ -221,7 +219,7 @@
     </message>
     <message>
         <source>New task list</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Aufgabenliste</translation>
     </message>
 </context>
 </TS>
