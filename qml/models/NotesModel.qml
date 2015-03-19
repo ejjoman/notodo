@@ -85,6 +85,23 @@ ListModel {
         return i + 1;
     }
 
+    function getById(noteId) {
+        var index = getIndexFromId(noteId)
+
+        if (index < 0)
+            return null;
+
+        return get(index);
+    }
+
+    function getIndexFromId(id) {
+        for (var i=0; i<root.count; i++)
+            if (root.get(i).id === id)
+                return i;
+
+        return -1;
+    }
+
     function getIdFromIndex(index) {
         var note = root.get(index);
 
@@ -106,17 +123,18 @@ ListModel {
 
             console.log("ID of new note is", result.insertId);
 
-            note["id"] = parseInt(result.insertId)
+            var noteId = parseInt(result.insertId)
+            note["id"] = noteId;
 
             var newIndex = root._getNewIndex(note);
             root.insert(newIndex, note);
 
-            callback(newIndex);
+            callback(noteId);
         })
     }
 
-    function updateNote(index, note) {
-        var noteId = root.getIdFromIndex(index);
+    function updateNote(noteId, note) {
+        //var noteId = root.getIdFromIndex(index);
         console.log("Updating note with id:", noteId)
 
         if (noteId < 0)
@@ -135,17 +153,14 @@ ListModel {
                           ]);
         });
 
+        var index = root.getIndexFromId(noteId)
         root.setProperties(index, note);
 
         var newIndex = root._getNewIndex(note);
         root.move(index, newIndex, 1);
-
-        return newIndex;
     }
 
-    function deleteNote(index) {
-        var noteId = root.getIdFromIndex(index);
-
+    function deleteNote(noteId) {
         if (noteId < 0)
             return;
 
@@ -153,6 +168,7 @@ ListModel {
             tx.executeSql("DELETE FROM notes WHERE id=?", [noteId]);
         });
 
+        var index = root.getIndexFromId(noteId)
         root.remove(index)
     }
 

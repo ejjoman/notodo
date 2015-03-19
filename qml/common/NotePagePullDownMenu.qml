@@ -39,7 +39,7 @@ PullDownMenu {
 
             if (basePage.type === "note")
                 pageStack.replace(todoPage, {
-                                      noteIndex: basePage.noteIndex,
+                                      noteId: basePage.noteId,
                                       note: basePage.note,
                                       title: basePage.title,
                                       color: basePage.color,
@@ -47,7 +47,7 @@ PullDownMenu {
                                   }, PageStackAction.Animated)
             else
                 pageStack.replace(notePage, {
-                                      noteIndex: basePage.noteIndex,
+                                      noteId: basePage.noteId,
                                       note: basePage.note,
                                       title: basePage.title,
                                       color: basePage.color,

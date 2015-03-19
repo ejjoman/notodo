@@ -81,6 +81,10 @@ NoteBasePage {
                             textItem.selectAll();
                         }
                     } else {
+                        _updatingTitle = true;
+                        root.title = root.title.trim()
+                        _updatingTitle = false;
+
                         root._updateTitle()
                     }
                 }
@@ -113,7 +117,7 @@ NoteBasePage {
     }
 
     Component.onCompleted: {
-        if (root.noteIndex < 0)
+        if (root.noteId < 0)
             textArea.forceActiveFocus()
     }
 }

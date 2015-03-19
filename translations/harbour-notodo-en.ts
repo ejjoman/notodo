@@ -168,7 +168,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/NotePage.qml" line="104"/>
+        <location filename="../qml/pages/NotePage.qml" line="108"/>
         <source>Write a new note</source>
         <translation></translation>
     </message>
@@ -207,8 +207,8 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TodoPage.qml" line="133"/>
-        <location filename="../qml/pages/TodoPage.qml" line="134"/>
+        <location filename="../qml/pages/TodoPage.qml" line="137"/>
+        <location filename="../qml/pages/TodoPage.qml" line="138"/>
         <source>New entry</source>
         <translation></translation>
     </message>

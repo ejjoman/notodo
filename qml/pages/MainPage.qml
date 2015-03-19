@@ -58,12 +58,12 @@ Page {
 
             MenuItem {
                 text: qsTr("New note")
-                onClicked: pageStack.push(notePage, {noteIndex: -1})
+                onClicked: pageStack.push(notePage, {noteId: -1})
             }
 
             MenuItem {
                 text: qsTr("New task list")
-                onClicked: pageStack.push(todoPage, {noteIndex: -1})
+                onClicked: pageStack.push(todoPage, {noteId: -1})
             }
         }
 
@@ -160,7 +160,7 @@ Page {
 
             function remove() {
                 remorseAction(qsTr("Deleting"), function() {
-                    notesModel.deleteNote(model.index)
+                    notesModel.deleteNote(model.id)
                 })
             }
 
@@ -177,9 +177,9 @@ Page {
 
             onClicked: {
                 if (model.type === "note")
-                    pageStack.push(notePage, {noteIndex: model.index})
+                    pageStack.push(notePage, {noteId: model.id})
                 else
-                    pageStack.push(todoPage, {noteIndex: model.index})
+                    pageStack.push(todoPage, {noteId: model.id})
             }
         }
 

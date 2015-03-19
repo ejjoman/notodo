@@ -37,7 +37,7 @@ Page {
     id: root
 
     /* Note properties */
-    property int noteIndex
+    property int noteId
     property string type
     property string note
     property string title: newTitle
@@ -68,8 +68,8 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Deactivating) {
-            if (root.noteIndex >= 0 && root.note.trim() == '') {
-                notesModel.deleteNote(root.noteIndex)
+            if (root.noteId >= 0 && root.note.trim() == '') {
+                notesModel.deleteNote(root.noteId)
             } else if(root.note.trim() != '') {
                 root.saveNote()
             }
@@ -77,7 +77,7 @@ Page {
     }
 
     function saveNote() {
-        console.log("NoteIndex", noteIndex)
+        console.log("NoteId", noteId)
 
         if (isChangingType) {
             console.log("Changing type, don't save.")
@@ -99,13 +99,13 @@ Page {
             "color": root.color + ""
         }
 
-        if (noteIndex >= 0) {
+        if (root.noteId >= 0) {
             console.log("Update note...")
-            root.noteIndex = notesModel.updateNote(noteIndex, note)
+            notesModel.updateNote(root.noteId, note)
         } else {
             console.log("Save new note...")
-            notesModel.addNote(note, function(newIndex) {
-                root.noteIndex = newIndex
+            notesModel.addNote(note, function(newId) {
+                root.noteId = newId
             })
         }
     }
@@ -123,10 +123,10 @@ Page {
             return;
         }           
 
-        if (noteIndex < 0 || noteIndex > notesModel.count)
+        if (noteId < 0)
             return;
 
-        var item = notesModel.get(noteIndex)
+        var item = notesModel.getById(noteId)
         root.title = item.title
         root.note = item.note
         root.color = item.color
