@@ -13,11 +13,11 @@ Name:       harbour-notodo
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    NoTodo is a simple and easy note and to-do taking application.
-Version:    0.0.2
+Version:    0.1.0
 Release:    1
 Group:      Qt/Qt
-License:    LICENSE
-URL:        http://example.org/
+License:    GPLv3
+URL:        https://github.com/ejjoman/notodo/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-notodo.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -28,7 +28,9 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my SailfishOS Application
+NoTodo is a simple and easy note and to-do taking application.
+It can be used to create and edit notes and to-do lists.
+You are able to convert any note to a to-do list and vice-versa.
 
 
 %prep
