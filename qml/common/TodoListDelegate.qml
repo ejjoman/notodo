@@ -2,7 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Item {
-    id: listItem
+    id: listItem 
 
     function focus() {
         textField.forceActiveFocus();
@@ -11,7 +11,7 @@ Item {
     property alias backgroundRectAnimation: backgroundRectAnimation
     readonly property int index: model.index
 
-    height: Theme.itemSizeSmall
+    height: Math.max(Theme.itemSizeSmall, textField.implicitHeight)
     width: parent ? parent.width : Screen.width
 
     Rectangle {
@@ -73,8 +73,9 @@ Item {
         }
     }
 
-    TextField {
+    TextArea {
         id: textField
+        wrapMode: TextEdit.Wrap
 
         property bool _initialized: false
 
@@ -105,5 +106,7 @@ Item {
         EnterKey.iconSource: "image://theme/icon-m-enter-accept"
 
         Component.onCompleted: _initialized = true;
+
+        onTextChanged: text = text.replace("\n", "")
     }
 }

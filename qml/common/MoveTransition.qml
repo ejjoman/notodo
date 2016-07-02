@@ -4,6 +4,6 @@ Transition {
     SmoothedAnimation {
         properties: "x,y"
         duration: 150
-        velocity: -1 //500
+        //velocity: 1000
     }
 }

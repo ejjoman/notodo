@@ -41,7 +41,7 @@ NoteBasePage {
     type: "todo"
     newTitle: qsTr("New task list")
 
-    property bool _modelUpdating: false;
+    property bool _modelUpdating: false
 
     SilicaListView {
         id: todoList
@@ -169,6 +169,8 @@ NoteBasePage {
                 if (!activeFocus)
                     addItem()
             }
+
+            onTextChanged: text = text.replace("\n", "")
         }
 
         PanelBackground {
